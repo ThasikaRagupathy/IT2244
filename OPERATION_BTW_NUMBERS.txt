@@ -1,0 +1,37 @@
+echo "Who are you?"
+read name
+
+echo "Enter number 1"
+read x
+echo "Enter number 2"
+read y
+echo "Enter number 3"
+read z
+sum=$(($x+$y+$z))
+avg=$(($sum/3))
+
+echo "Hi" $name
+echo "Summation"$sum
+echo "Average"$avg
+
+[2021ict89@fedora ~]$ echo "Enter num1:"
+Enter num1:
+[2021ict89@fedora ~]$ read num1
+30
+[2021ict89@fedora ~]$ echo "Enter num2:"
+Enter num2:
+[2021ict89@fedora ~]$ read num2
+15
+[2021ict89@fedora ~]$ sum=$(($num1+$num2))
+[2021ict89@fedora ~]$ sub=$(($num1-$num2))
+[2021ict89@fedora ~]$ mul=$(($num1*$num2))
+[2021ict89@fedora ~]$ div=$(($num1/$num2))
+[2021ict89@fedora ~]$ echo "Sum:" $sum
+Sum: 45
+[2021ict89@fedora ~]$ echo "sub:"$sub
+sub:15
+[2021ict89@fedora ~]$ echo "mul:"$mul
+mul:450
+[2021ict89@fedora ~]$ echo "div:"$div
+div:2
+
