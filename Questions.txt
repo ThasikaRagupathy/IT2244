@@ -1,0 +1,149 @@
+::get the calender and the date
+[2021ict89@fedora ~]$ cal
+     April 2025
+Su Mo Tu We Th Fr Sa
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30
+
+Fri Apr  4 01:32:48 PM +0530 2025
+
+::get the student name and marks for the 3 subjects from the user then calculate the "total" anf "average"
+::Enter name-Isuru
+::Enter the marks for subject1:80
+::Enter the marks for subject2:90
+::Enter the marks for subject3:70
+::Total and average
+[2021ict89@fedora ~]$ vi marks.sh
+echo "Enter name: "
+read name
+echo "Enter the marks for the subject1: "
+read marks1
+echo "Enter the marks for the subject2: "
+read marks2
+echo "Enter the marks for subject3: "
+read marks3
+sum=$(($marks1+$marks2+$marks3))
+echo "Total: "$sum
+avg=$(($sum/3))
+echo "Average: "$avg
+
+[2021ict89@fedora ~]$ chmod 777 marks.sh
+[2021ict89@fedora ~]$ ./marks.sh
+Enter name:
+Tikku
+Enter the marks for the subject1:
+89
+Enter the marks for the subject2:
+79
+Enter the marks for subject3:
+57
+Total: 225
+Average: 75
+
+::create calculator with arithmetic operators
+::Enter the first number:4
+::Enter the second number:6
+::Summation,substraction,division,multiplication
+[2021ict89@fedora ~]$ touch exercise.sh
+[2021ict89@fedora ~]$ vi exercise.sh
+
+echo "enter the first number: "
+read num1
+echo "enter the second number: "
+read num2
+sum=$(($num1+$num2))
+sub=$(($num1-$num2))
+mul=$(($num1*$num2))
+div=$(($num1/$num2))
+echo "Sum: "$sum
+echo "Sub: "$sub
+echo "mul: "$mul
+echo "div: "$div
+
+[2021ict89@fedora ~]$ chmod 777 exercise.sh
+[2021ict89@fedora ~]$ ./exercise.sh
+enter the first number:
+45
+enter the second number:
+5
+Sum: 50
+Sub: 40
+mul: 225
+div: 9
+
+::Get the days based on the user input number
+::Enter the number: 5
+::Friday
+
+echo "Enter the number (1-7): "
+read number
+
+case $number in
+    1) echo "Monday";;
+    2) echo "Tuesday";;
+    3) echo "Wednesday";;
+    4) echo "Thursday";;
+    5) echo "Friday";;
+    6) echo "Saturday";;
+    7) echo "Sunday";;
+    *) echo "Invalid input!";;
+esac
+
+[2021ict89@fedora ~]$ ./FindDay.sh
+Enter the number(1-7)
+6
+Saturday
+
+::verify whether your user name is correct ot not.(use your name as )
+::Enter user name:
+::mino
+::user name is correct
+
+correct_username="Tikku"
+
+echo  "Enter user name: "
+read entered_username
+
+if [ "$entered_username" == "$correct_username" ]; then
+    echo "User name is correct"
+else
+    echo "User name is incorrect"
+fi
+
+[2021ict89@fedora ~]$ ./userName.sh
+Enter User name:
+Tikku
+User name is correct
+[2021ict89@fedora ~]$ ./userName.sh
+Enter User name:
+Takku
+User name is incorrect
+
+
+::Enter two numbers:1 6
+::6 is greater than 1
+::Enter two numbers:1 6
+::1 is less than 6
+
+echo  "Enter two numbers (separated by space): "
+read num1 num2
+
+if [ "$num1" -gt "$num2" ]; then
+    echo "$num1 is greater than $num2"
+elif [ "$num1" -lt "$num2" ]; then
+    echo "$num1 is less than $num2"
+else
+    echo "$num1 is equal to $num2"
+fi
+
+[2021ict89@fedora ~]$ ./FindNum.sh
+Enter two numbers(separate by space):
+45 60
+45 is less than 60
+[2021ict89@fedora ~]$ ./FindNum.sh
+Enter two numbers(separate by space):
+78 60
+78 is greater than 60
