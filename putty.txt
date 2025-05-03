@@ -1,0 +1,120 @@
+login as: 2021ict89
+2021ict89@172.16.140.150's password:
+Last login: Mon Mar 17 11:38:37 2025 from 172.16.140.60
+[2021ict89@fedora ~]$ touch file.txt
+[2021ict89@fedora ~]$ vi file.txt
+[2021ict89@fedora ~]$ vi abc.txt
+[2021ict89@fedora ~]$ ls abc.tsv file.txt
+ls: cannot access 'abc.tsv': No such file or directory
+file.txt
+[2021ict89@fedora ~]$ cut -d""-f3 abc.tsv
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+[2021ict89@fedora ~]$ vi xyz.tsv
+[2021ict89@fedora ~]$ ls xyz.tsv
+xyz.tsv
+[2021ict89@fedora ~]$ cut -d'' -f abc.tsv
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+[2021ict89@fedora ~]$ cut -d''-f1 abc.tsv
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+[2021ict89@fedora ~]$ head abc.tsv
+head: cannot open 'abc.tsv' for reading: No such file or directory
+[2021ict89@fedora ~]$ cut -d''-f1 xyz.tsv
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+[2021ict89@fedora ~]$ head xyz.tsv
+qq      11      22      33
+ww      44      55      66
+rr      77      88      99
+ff      23      45      67
+gh      56      97      98
+gn      65      89      45
+hj      76      80      45
+nm      55      12      22
+[2021ict89@fedora ~]$ tail xyz.tsv
+qq      11      22      33
+ww      44      55      66
+rr      77      88      99
+ff      23      45      67
+gh      56      97      98
+gn      65      89      45
+hj      76      80      45
+nm      55      12      22
+[2021ict89@fedora ~]$ tail -3 xyz.tsv
+gn      65      89      45
+hj      76      80      45
+nm      55      12      22
+[2021ict89@fedora ~]$ head -3 xyz.tsv
+qq      11      22      33
+ww      44      55      66
+rr      77      88      99
+[2021ict89@fedora ~]$ ^C
+[2021ict89@fedora ~]$ ^[[200~cut -d$'\t' -f1 abc.tsv
+bash: cut: command not found...
+[2021ict89@fedora ~]$ cut -d'\t' -f1 xyz.tsv
+cut: the delimiter must be a single character
+Try 'cut --help' for more information.
+[2021ict89@fedora ~]$ head -n5 xyz.tsv|tail -n4
+ww      44      55      66
+rr      77      88      99
+ff      23      45      67
+gh      56      97      98
+[2021ict89@fedora ~]$ head -n5 xyz.tsv|tail -n1
+gh      56      97      98
+[2021ict89@fedora ~]$ awk {print} xyz.tsv
+qq      11      22      33
+ww      44      55      66
+rr      77      88      99
+ff      23      45      67
+gh      56      97      98
+gn      65      89      45
+hj      76      80      45
+nm      55      12      22
+[2021ict89@fedora ~]$ vi xyz.tsv
+[2021ict89@fedora ~]$ awk '{print$1}' xyz.tsv
+qq
+ww
+rr
+ff
+gh
+gn
+hj
+nm
+[2021ict89@fedora ~]$ awk '{print$2}' xyz.tsv
+11
+44
+77
+23
+56
+65
+76
+55
+[2021ict89@fedora ~]$ awk '{print$3}' xyz.tsv
+22
+55
+88
+45
+97
+89
+80
+12
+[2021ict89@fedora ~]$ awk '{print$4}' xyz.tsv
+33
+66
+99
+67
+98
+45
+45
+22
+[2021ict89@fedora ~]$ awk '{print NF;exit}' xyz.tsv
+4
+[2021ict89@fedora ~]$ wc -1 xyz.tsv
+wc: invalid option -- '1'
+Try 'wc --help' for more information.
+[2021ict89@fedora ~]$ wc -l xyz.tsv
+8 xyz.tsv
+[2021ict89@fedora ~]$ head -n8 xyz.tsv | grep 'ff'
+ff      23      45      67
