@@ -1,0 +1,292 @@
+::Q1)write a code for small astrology based on your life path number for that get the date of birth from user then calculate life path number.(use switch case)
+::calculation for life path number
+::a=date%10
+::b=date/10
+::c=a+b
+
+::if life path number
+      ::1-lucky
+	  ::2-carefully do your work
+	  ::3-stronger
+	  ::4-happy
+	  ::5-can get help
+	  ::6-doubt
+	  ::7-sad
+	  ::8-like
+	  ::9-courage
+	  
+echo "Enter your Birth Date: "
+read dayOfBirth
+a=$(($dayOfBirth%10))
+b=$(($dayOfBirth/10))
+c=$(($a+$b))
+
+if [ $c -ge 10 ]; then
+  a=$(($c % 10))
+  b=$(($c / 10))
+  c=$(($a + $b))
+fi
+
+case $c in
+1)echo "Lucky";;
+2)echo "Carefully do your work";;
+3)echo "Stronger";;
+4)echo "Happy";;
+5)echo "Can get help";;
+6)echo "Doubt";;
+7)echo "Sad";;
+8)echo "like";;
+9)echo "Courage";;
+*)echo "invalid input";;
+esac
+
+[2021ict89@fedora ~]$ ./Question01.sh
+Enter your Birth Date:
+28
+Peace
+
+
+::Q2)Give a list of numbers then calculate the sum and multiplication using for loop
+::1 2 3 4 5
+::sum-15
+::mul-120
+
+::Syntax for for loop
+::for variable in list
+::do 
+::commands
+::done
+[2021ict89@fedora ~]$ touch Question02.sh
+[2021ict89@fedora ~]$ vi Question02.sh
+[2021ict89@fedora ~]$ chmod 777 Question02.sh
+[2021ict89@fedora ~]$ ./Question02.sh
+
+Enter the numbers:
+1 2 3 4 5
+Sum: 15
+multiplication: 120
+
+echo "Enter the numbers: "
+read -a numbers
+
+sum_results=0
+mul_results=1
+
+for number in "${numbers[@]}"
+do
+   sum_results=$(($sum_results + $number))
+   mul_results=$(($mul_results * $number))
+done
+
+echo "Sum: $sum_results"
+echo "multiplication: $mul_results"
+
+::Q3)print the int 1 to 10 using while loop
+::syntax for while loop
+::while[ condition ]
+::do
+::command
+::done
+[2021ict89@fedora ~]$ touch Question03.sh
+[2021ict89@fedora ~]$ vi Question02.sh
+[2021ict89@fedora ~]$ chmod 777 Question03.sh
+[2021ict89@fedora ~]$ ./Question03.sh
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+n=1
+
+while [ $n -le 10 ]
+do
+echo $n
+n=$(($n+1))
+done
+
+::Q3)print below pattern using nested loop
+::column -7 row -7
+::syntax for nested loop
+::for(variable=0;variable<=input;variable++)
+::do
+::for((variable=0;variable<=input;variable++))
+::do
+::command
+::done
+::done
+
+(1)
+*
+**
+***
+****
+*****
+******
+*******
+
+[2021ict89@fedora ~]$ touch Question04.sh
+[2021ict89@fedora ~]$ vi Question04.sh
+[2021ict89@fedora ~]$ chmod 777 Question04.sh
+[2021ict89@fedora ~]$ ./Question04.sh
+Enter the no of rows & columns You need:
+7
+*
+**
+***
+****
+*****
+******
+*******
+********
+echo "Enter the no of rows & columns You need: "
+read n
+for((i=0;i<=n;i++))
+do
+for((j=0;j<=i;j++))
+do
+echo -n "*"
+done
+echo ""
+done
+
+echo ""
+
+
+(2)
+*******
+******
+*****
+****
+***
+**
+*
+[2021ict89@fedora ~]$ ./Question04.sh
+Enter the no of rows & columns You need:
+7
+*******
+******
+*****
+****
+***
+**
+*
+echo "Enter the no of rows & columns You need: "
+read n
+for((i=1;i<=n;i++))
+do
+for((j=n;j>=i;j--))
+do
+echo -n "*"
+done
+echo ""
+done
+
+echo ""
+
+::Q5)
+1
+22
+333
+4444
+55555
+666666
+
+[2021ict89@fedora ~]$ touch Question05.sh
+[2021ict89@fedora ~]$ vi Question05.sh
+[2021ict89@fedora ~]$ chmod 777 Question05.sh
+[2021ict89@fedora ~]$ ./Question05.sh
+
+Enter the no of rows:echo Enter the number of rows:6
+1
+22
+333
+4444
+55555
+666666
+
+echo "Enter the number of rows: "
+read n
+for ((i=1; i<=n; i++))
+do
+  for ((j=1; j<=i; j++))
+  do
+    echo -n "$i"
+  done
+  echo ""
+done
+
+::Q6)
+1
+12
+123
+1234
+12345
+123456
+
+[2021ict89@fedora ~]$ touch Question06.sh
+[2021ict89@fedora ~]$ vi Question06.sh
+[2021ict89@fedora ~]$ chmod 777 Question06.sh
+[2021ict89@fedora ~]$ ./Question06.sh
+
+Enter the number of rows: 6
+
+1
+12
+123
+1234
+12345
+123456
+
+echo "Enter the number of rows: "
+read n
+for ((i=1; i<=n; i++))
+do
+  for ((j=1; j<=i; j++))
+  do
+    echo -n "$j"
+  done
+  echo ""
+done
+
+::Q7)
+   *
+  * * 
+ * * * 
+ * * * *
+* * * * *
+
+[2021ict89@fedora ~]$ touch Question07.sh
+[2021ict89@fedora ~]$ vi Question07.sh
+[2021ict89@fedora ~]$ chmod 777 Question07.sh
+[2021ict89@fedora ~]$ ./Question07.sh
+
+Enter the number of rows:5
+
+     *
+    * *
+   * * *
+  * * * *
+ * * * * *
+
+echo "Enter the number of rows: "
+read n
+for ((i=1; i<=n; i++))
+do
+  for ((j=i; j<=n; j++))
+  do
+    echo -n " "
+  done
+  for ((j=1; j<=i; j++))
+  do
+    echo -n "* "
+  done
+  echo ""
+done
+
+
