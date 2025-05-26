@@ -1,0 +1,124 @@
+::Paligndrom
+::EX => MADAM / AMMA
+
+echo "Enter the Word: "
+read word
+  
+s=0
+  
+# Store number in reverse 
+# order
+rev=""
+  
+# Store original number 
+# in another variable
+temp=$num
+  
+while [ $num -gt 0 ]
+do
+    # Get Remainder
+    s=$(( $num % 10 ))  
+     
+    # Get next digit
+    num=$(( $num / 10 )) 
+     
+    # Store previous number and
+    # current digit in reverse 
+    rev=$( echo ${rev}${s} ) 
+done
+  
+if [ $temp -eq $rev ];
+then
+    echo "Number is palindrome"
+else
+    echo "Number is NOT palindrome"
+fi
+*************************************************************************
+
+#!/bin/bash
+
+echo "Enter the number 01: "
+read a
+
+echo "Enter the number 02: "
+read b
+
+echo "Enter the number 03: "
+read c
+
+# Check which number is greater
+if [ "$a" -gt "$b" ]; then
+  echo "$a is greater than $b"
+else
+  echo "$b is greater than $a"
+fi
+
+# Function to compute GCD
+gcd() {
+  local x=$1
+  local y=$2
+  while [ $y -ne 0 ]; do
+    local temp=$y
+    y=$((x % y))
+    x=$temp
+  done
+  echo $x
+}
+
+# Function to compute LCM
+lcm() {
+  local x=$1
+  local y=$2
+  echo $((x * y / $(gcd $x $y)))
+}
+
+# Compute LCM of a & b
+lcm_ab=$(lcm $a $b)
+echo "LCM of $a and $b is: $lcm_ab"
+
+# Compute GCD of b & c
+gcd_bc=$(gcd $b $c)
+echo "GCD of $b and $c is: $gcd_bc"
+
+
+
+if [ "$a" gt "$b"];
+then
+ if [ (($a/$b)) -eq 0 ]
+then
+  lcm=$b
+else
+  lcm=$a
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

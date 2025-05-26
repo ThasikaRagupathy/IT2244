@@ -1,0 +1,41 @@
+::Quiz
+Read three numbers(a,b,c)from the user and store then into three variables.
+Find the Least Common Multiple(LCM) 
+from the first two numbers(a,b) and 
+find the Greatest Common Diviser (GCD) for the second two numbers(b,c).
+
+::CODE
+echo "Enter the number 01: "
+read a
+
+echo "Enter the number 02: "
+read b
+
+echo "Enter the number 03: "
+read c
+  
+
+gcd() {
+  local x=$1
+  local y=$2
+  while [ $2 -ne 0 ];
+  do
+    local temp=$y
+    y=$((x % y))
+    x=$temp
+  done
+  echo $x
+}
+
+lcm() {
+  local x=$1
+  local y=$2
+  echo $((x * y / $(gcd $x $y)))
+}
+
+lcm_ab=$(lcm $a $b)
+echo "LCM of $a and $b is: $lcm_ab"
+
+gcd_bc=$(gcd $b $c)
+echo "GCD of $b and $c is: $gcd_bc"
+
